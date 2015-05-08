@@ -8,6 +8,7 @@
 __author__ = 'rory'
 
 import tornado.web
+import tornado.locale
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -30,7 +31,20 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_browser_locale(self, default='zh_CN'):
         return super(BaseHandler, self).get_browser_locale(default=default)
 
+    def get_user_locale(self):
+        """Override to determine the locale from the authenticated user.
 
-class Handler404(BaseHandler):
+        If None is returned, we fall back to `get_browser_locale()`.
+
+        This method should return a `tornado.locale.Locale` object,
+        most likely obtained via a call like ``tornado.locale.get("en")``
+        """
+        user_local = self.get_cookie('user_locale', 'zh_CN')
+        return tornado.locale.get(user_local)
+
+
+class HandlerError(BaseHandler):
     def get(self, *args, **kwargs):
+        # print self._status_code, '--------'
+        # print self.get_status(), '+++++++++'
         self.send_error(404)

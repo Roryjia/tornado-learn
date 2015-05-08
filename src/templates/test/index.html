@@ -5,7 +5,10 @@
 
 {% block body %}
     {% module Test() %}
-    <h1>Enter terms below.</h1>
+
+    {# set a variables #}
+    {% set title = 'Tornado' %}
+    <h3>({{ title }})Enter terms below.</h3>
     <img src="{{ static_url('image/test/cat2.jpg') }}" width="320" height="160" alt="{{ current_user }}"/>
     <form method="post" action="/test/post/" >
         {% raw xsrf_form_html() %}
@@ -13,14 +16,14 @@
         <p>name2<br><input type="text" name="name2"></p>
         <p>name3<br><input type="text" name="name3"></p>
         <p>name3<br><input type="text" name="name3"></p>
-        <input type="submit", value="{{ _("Sign in") }}">
+        <input type="submit", value="{{ _(u"Sign in") }}">
     </form>
 
     <p class="small">
         Follow us on GitHub at
         {% raw linkify("https://github.com/roryjia", extra_params='ref=website') %}.
     </p>
-    {% module Template('test/embed.html', books=['Python', 'Tornado', 'Django']) %}
+{#    {% module Template('test/embed.html', books=['Python', 'Tornado', 'Django']) %}#}
 
 {% end %}
-{% block footer %}这是一个小尾巴，小尾巴。。。{% end %}
+{% block footer %}{{ _(u"zhe shi yi ge xiao wei ba") }}{% end %}

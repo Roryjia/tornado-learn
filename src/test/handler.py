@@ -54,7 +54,7 @@ class TestIndexHandler(BaseHandler):
     加载模版
     """
     def get(self, *args, **kwargs):
-        q = self.get_argument('q')
+        # q = self.get_argument('q')
 
         self.render('test/index.html')
 

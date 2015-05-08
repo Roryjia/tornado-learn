@@ -9,7 +9,7 @@ __author__ = 'rory'
 
 import os
 
-from core.handler import Handler404
+from core.handler import HandlerError
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES_PATH = os.path.join(BASE_DIR, 'templates')
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
-DEFAULT_HANDLER_CLASS = Handler404
+DEFAULT_HANDLER_CLASS = HandlerError
 
 
 APPLICATION_SETTING = {

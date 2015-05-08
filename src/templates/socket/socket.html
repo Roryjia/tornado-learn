@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test Tornado Socket</title>
+    <script type="text/javascript">
+        var ws = new WebSocket("ws://localhost:8888/socket/");
+        ws.onopen = function() {
+           ws.send("Hello, world");
+        };
+        ws.onmessage = function (evt) {
+           alert(evt.data);
+        };
+    </script>
+</head>
+<body>
+    <h1>Test Tornado Socket</h1>
+</body>
+</html>
