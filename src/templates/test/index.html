@@ -1,0 +1,26 @@
+
+{% extends 'main.html' %}
+
+{% block title %}Hello One Tornado Templates{% end %}
+
+{% block body %}
+    {% module Test() %}
+    <h1>Enter terms below.</h1>
+    <img src="{{ static_url('image/test/cat2.jpg') }}" width="320" height="160" alt="{{ current_user }}"/>
+    <form method="post" action="/test/post/" >
+        {% raw xsrf_form_html() %}
+        <p>name1<br><input type="text" name="name1"></p>
+        <p>name2<br><input type="text" name="name2"></p>
+        <p>name3<br><input type="text" name="name3"></p>
+        <p>name3<br><input type="text" name="name3"></p>
+        <input type="submit", value="{{ _("Sign in") }}">
+    </form>
+
+    <p class="small">
+        Follow us on GitHub at
+        {% raw linkify("https://github.com/roryjia", extra_params='ref=website') %}.
+    </p>
+    {% module Template('test/embed.html', books=['Python', 'Tornado', 'Django']) %}
+
+{% end %}
+{% block footer %}这是一个小尾巴，小尾巴。。。{% end %}
