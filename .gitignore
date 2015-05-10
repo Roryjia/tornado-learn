@@ -55,4 +55,4 @@ target/
 
 src/config/__init__.py
 
-media/*
+src/media/*

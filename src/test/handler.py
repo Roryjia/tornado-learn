@@ -8,12 +8,14 @@
 __author__ = 'rory'
 
 import json
+import os
 
 import tornado.httpclient
 import tornado.web
 
 from core.handler import BaseHandler
 from core.ui import BaseUIModule
+from config import BASE_DIR
 
 
 class TestUIModule(BaseUIModule):
@@ -64,6 +66,17 @@ class TestPostHandler(BaseHandler):
     处理 test index form post
     """
     def post(self, *args, **kwargs):
+        image = self.request.files.get('image')
+        if image:
+            filename = image[0].get('filename')
+            with open(os.path.join(BASE_DIR, 'media', filename), 'wb') as f:
+                f.write(image[0].get('body'))
+                f.close()
+
+        print image
+        print type(image)
+        print image[0].keys()
+
         name1 = self.get_argument('name1')
         name2 = self.get_argument('name2')
         name3 = self.get_arguments('name3')
