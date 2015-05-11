@@ -33,4 +33,4 @@ class LoginHandler(BaseHandler):
 
     def post(self):
         self.set_secure_cookie('user', self.get_argument('name', 'rory'))
-        self.redirect('/')
+        self.redirect('/bootstrap/first/')

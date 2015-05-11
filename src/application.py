@@ -18,6 +18,7 @@ from auth.handler import MainHandler, LoginHandler
 from test.handler import PageHandler, TestIndexHandler, TestPostHandler, TestUIModule, TestClientHandler
 from lang.handler import LangHandler
 from websocket.handler import SocketHandler, SocketTestHandler
+from bootstrap.handler import BootstrapFirstHandler
 
 UI_MODULES = {
     'Base': BaseUIModule,
@@ -39,5 +40,7 @@ app = tornado.web.Application([
 
     (r'^/socket/?$', SocketHandler),
     (r'^/socket/test/?$', SocketTestHandler),
+
+    (r'^/bootstrap/first/?$', BootstrapFirstHandler),
 
 ], **APPLICATION_SETTING)
