@@ -24,18 +24,18 @@ class TestUIModule(BaseUIModule):
     """
 
     def embedded_javascript(self):
-        return 'document.write("Hello To Tornado UI Module JS")'
+        return u'alert("你进去了这里哦!")'
 
     def embedded_css(self):
         css = 'h1 {background-color:#F5F5F5}' \
-              # 'li {display:none}'
+              '.container p {background-color:#555}'
         return css
 
     def css_files(self):
         return ['css/test.css', ]
 
     def javascript_files(self):
-        return ['js/test.js', ]
+        return ['js/test/test.js', ]
 
     def render(self, *args, **kwargs):
         return self.render_string('test/embed.html', books=['Python', 'Tornado', 'Django'])

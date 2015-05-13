@@ -41,6 +41,6 @@ app = tornado.web.Application([
     (r'^/socket/?$', SocketHandler),
     (r'^/socket/test/?$', SocketTestHandler),
 
-    (r'^/bootstrap/first/?$', BootstrapFirstHandler),
+    (r'^/bootstrap/first/?$', BootstrapFirstHandler, {}, 'bootstrap-first'),
 
 ], **APPLICATION_SETTING)

@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <h1>{{ _(u"get wrong") }} . {{ status_code }}</h1>
-    <div id="error_msg">
+{% extends '../main/main.html' %}
+
+{% block title %}There Found An Error{% end %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{{ _(u"get wrong") }} . {{ status_code }}</h1>
+        <div id="error_msg">
+        </div>
     </div>
-</body>
-</html>
+
+{% end %}
+{% block footer %}
+    <div class="container tail">
+        <p>{{ _(u"zhe shi yi ge xiao wei ba") }}</p>
+    </div>
+{% end %}

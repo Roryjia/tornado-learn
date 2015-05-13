@@ -4,27 +4,29 @@
 {% block title %}Hello One Tornado Templates{% end %}
 
 {% block body %}
-    {% module Test() %}
+    <div class="container">
+        {% module Test() %}
 
-    {# set a variables #}
-    {% set title = 'Tornado' %}
-    <h3>({{ title }})Enter terms below.</h3>
-    <img src="{{ static_url('image/test/cat2.jpg') }}" width="320" height="160" alt="{{ current_user }}"/>
-    <form method="post" action="/test/post/" enctype="multipart/form-data">
-        {% raw xsrf_form_html() %}
-        <p>name1<br><input type="text" name="name1"></p>
-        <p>name2<br><input type="text" name="name2"></p>
-        <p>name3<br><input type="text" name="name3"></p>
-        <p>name3<br><input type="text" name="name3"></p>
-        <p><br><input type="file" name="image"></p>
-        <input type="submit", value="{{ _(u"Sign in") }}">
-    </form>
+        {# set a variables #}
+        {% set title = 'Tornado' %}
+        <h3>({{ title }})Enter terms below.</h3>
+        <img src="{{ static_url('image/test/cat2.jpg') }}" width="320" height="160" alt="{{ current_user }}"/>
+        <form method="post" action="/test/post/" enctype="multipart/form-data">
+            {% raw xsrf_form_html() %}
+            <p>name1<br><input type="text" name="name1"></p>
+            <p>name2<br><input type="text" name="name2"></p>
+            <p>name3<br><input type="text" name="name3"></p>
+            <p>name3<br><input type="text" name="name3"></p>
+            <p><br><input type="file" name="image"></p>
+            <input type="submit", value="{{ _(u"Sign in") }}">
+        </form>
 
-    <p class="small">
-        Follow us on GitHub at
-        {% raw linkify("https://github.com/roryjia", extra_params='ref=website') %}.
-    </p>
-{#    {% module Template('test/embed.html', books=['Python', 'Tornado', 'Django']) %}#}
+        <p class="small">
+            Follow us on GitHub at
+            {% raw linkify("https://github.com/roryjia", extra_params='ref=website') %}.
+        </p>
+        {#    {% module Template('test/embed.html', books=['Python', 'Tornado', 'Django']) %}#}
+    </div>
 
 {% end %}
 {% block footer %}{{ _(u"zhe shi yi ge xiao wei ba") }}{% end %}
