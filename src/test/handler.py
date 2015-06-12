@@ -28,7 +28,7 @@ class TestUIModule(BaseUIModule):
 
     def embedded_css(self):
         css = 'h1 {background-color:#F5F5F5}' \
-              '.container p {background-color:#555}'
+              # '.container p {background-color:#555}'
         return css
 
     def css_files(self):

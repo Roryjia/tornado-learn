@@ -12,16 +12,27 @@
     {% block header %}{% end %}
     <link rel="icon" href="{{ static_url('image/favicon.ico') }}">
     <style type="text/css">
+        html {
+            height: 100%;
+        }
         body {
-          padding-top: 50px;
+            padding-top: 50px;
+            min-height: 100%;
+            position: relative;
+        }
+        @media only screen and (max-width: 1000px){
+            nav  form{
+                display: none;
+            }
         }
         .footer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          /* Set the fixed height of the footer here */
-          height: 60px;
-          background-color: #f5f5f5;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+
+            background-color: #f5f5f5;
         }
         .footer .mine{
             float: left;
@@ -34,6 +45,11 @@
         .tail p {
             background-color: #FFF0F0;
             font-family: "微软雅黑", "黑体", "Courier New", Courier, monospace;
+        }
+        @media only screen and (max-width: 380px) {
+            .lang {
+                display: none;
+            }
         }
     </style>
 </head>
